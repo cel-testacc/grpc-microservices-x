@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message EConsumptionData {
+    string timeofConsumption = 1;
+    string meterusage = 2;
+}
+
+message EConsumptionRequest {}
+
+message EConsumptionResponse {
+    repeated EConsumptionData electricityConsumption = 1;
+}
+
+service ElectricityConsumption {
+    rpc GetEConsumptionData (EConsumptionRequest) returns (EConsumptionResponse);
+}
