@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Testing grpc microservices JSON call</title>
+    </head>
+    <body>
+        <h1>Electricity Consumption Data</h1>
+        <div id="eConsumptionData"></div>
+        <script type="text/javascript">
+            fetch('http://127.0.0.1:5000/getECData')
+                .then((response) =>
+                    response.json())
+                .then(function(ecdata) {
+                    displayData(ecdata);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+            function displayData(ecdata) {
+                var hold_data = document.getElementById("eConsumptionData");
+                for (var i = 0; i < ecdata.length; i++) {
+                    var div = document.createElement("div");
+                    div.innerHTML = 'Time: ' + ecdata[i][0] + ' Meter Usage: ' + ecdata[i][1];
+                    hold_data.appendChild(div);
+                }
+            }
+        </script>
+    </body>
+</html>
