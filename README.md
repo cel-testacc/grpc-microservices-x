@@ -28,6 +28,6 @@ To view the JSON API request in action, simply double-click the index.html file 
 - The main language used to create both the grpc client and server is Python.
 - The electricityConsumption.py file begins the process by parsing the input csv and preparing the service by opening a port and waiting for data to be requested.
 - The grpc client, located in the requestdata directory, is an application written using the Flask framework. It accepts the data transmitted from the open grpc server and returns the data via the /getECData endpoint as a JSON string. 
-- The index.html file shows the cumulative output of the grpc client-server data transfer by displaying the structured data called from the HTTP /getECData endpoint.
+- The index.html file shows the cumulative output of the grpc client-server data transfer by displaying the structured data called from the HTTP /getECData endpoint. The file uses javascript to receive and parse the HTTP call and then dynamically append the data so it can be viewed in HTML. 
 ## License
 GPL-3.0
